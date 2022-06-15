@@ -1,0 +1,30 @@
+class Carro:
+    def __init__(self, marca, valor, numero_portas, tanque_gasolina):
+        self.marca = marca
+        self.valor = valor
+        self.numero_portas = numero_portas
+        self.tanque_gasolina = tanque_gasolina
+    
+    def dirigir(self):
+        print("Vrumm")
+        distancia = int(input("Qual a distância em km ? "))
+        self.tanque_gasolina += - (distancia / 4)
+
+    def abastecer(self):
+        print("Aoba meu campeão")
+        Posto = int(input("Sua gasolina está em %.2f, quanto deseja abastecer ? " % self.tanque_gasolina))
+        
+        if self.tanque_gasolina + Posto <= 100:
+            self.tanque_gasolina += Posto
+            print("Prontinho, tanque abastecido!")
+        else:
+            sugestao = 100 - self.tanque_gasolina
+            print("Para completar o tanque precisa apenas de %i litros de gasolina" % sugestao)
+
+Astra = Carro("Chevrolet", 30000, 4, 100)
+print(Astra.tanque_gasolina)
+
+Astra.dirigir()
+print("Sua gasolina ficou em %.2f" % Astra.tanque_gasolina)
+
+Astra.abastecer()
